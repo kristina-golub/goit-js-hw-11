@@ -9,7 +9,6 @@ import { renderGallery } from './render-functions.js';
 
 const form = document.getElementById('search-form');
 const gallery = document.querySelector('.gallery');
-
 const loader = document.querySelector('.loader'); 
 
 if (!form || !gallery || !loader) {
@@ -31,13 +30,13 @@ form.addEventListener('submit', async (event) => {
     try {
         const images = await fetchImages(query);
 
-        console.log('Fetched images:', images);
+        console.log('Fetched images:', images); 
 
         if (images.length === 0) {
             iziToast.error({ message: 'Sorry, there are no images matching your search query. Please try again!' });
         } else {
-            renderGallery(images);
-            new SimpleLightbox('#gallery a');
+            renderGallery(images); 
+            new SimpleLightbox('.gallery a'); 
         }
     } catch (error) {
         console.error('Error during fetching:', error);

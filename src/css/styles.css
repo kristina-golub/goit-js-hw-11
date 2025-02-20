@@ -60,8 +60,14 @@ button {
   width: 100%;
   border-radius: 10px;
 }
-.image-info {
+.info {
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.info p {
+  margin: 0;
 }
 .active {
   border: 2px solid red;

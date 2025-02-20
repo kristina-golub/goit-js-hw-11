@@ -1,30 +1,33 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector('.gallery');
 
 export function renderGallery(images) {
-    gallery.innerHTML = "";
+  gallery.innerHTML = ""; 
 
-    if (images.length === 0) {
-        return;
-    }
+  if (images.length === 0) {
+    return;
+  }
 
-    const markup = images
-        .map(
-            (image) => `
+  const markup = images
+    .map(
+      (image) => `
     <a href="${image.largeImageURL}" class="gallery-item">
       <img src="${image.webformatURL}" alt="${image.tags}" />
       <div class="info">
-        <p> ${image.likes}</p>
-        <p> ${image.views}</p>
-        <p> ${image.comments}</p>
-        <p> ${image.downloads}</p>
+        <p>Likes: ${image.likes}</p>
+        <p>Views: ${image.views}</p>
+        <p>Comments: ${image.comments}</p>
+        <p>Downloads: ${image.downloads}</p>
       </div>
     </a>
   `
-        )
-        .join("");
+    )
+    .join("");
 
-    gallery.innerHTML = markup;
+  gallery.innerHTML = markup;
+
+  const lightbox = new SimpleLightbox('.gallery a'); 
+  lightbox.refresh(); 
 }
